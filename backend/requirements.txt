@@ -1,4 +1,8 @@
 fastapi
-google-cloud-vision
+google-generativeai
+google-ai-generativelanguage
 numpy
-PyPDF2
+unstructured[pdf]
+onnx
+onnxruntime
+onnx-tf
