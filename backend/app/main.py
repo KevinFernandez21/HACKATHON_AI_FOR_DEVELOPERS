@@ -33,7 +33,7 @@ def generate_content(request: RequestBody):
     try:
         model = genai.GenerativeModel(
             model_name="gemini-1.5-flash",
-            system_instruction="You can only say 3 words Simple Complex and nothing, under your criteria you can say simple when the user asks for a simple task that does not need planning, you can say Complex when the user needs a schedule or many tasks and finally if neither of the two or both are the case say nothing, you are an App against procrastination and improving time control you cannot talk about anything else.")  
+            system_instruction="Solo puedes decir dos palabras cuando yo te hable de comida me diras (comida) cuando yo te hable de computadoras tu me dices tecnologia cuando no hable de ninguna de la dos dime puedes repetir lo mencionado ")  
         start_time = time.time()
         response = model.generate_content(request.prompt)
         end_time = time.time()
