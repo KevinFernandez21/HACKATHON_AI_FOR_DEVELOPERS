@@ -22,5 +22,5 @@ end_time = time.time()
 # Calculate the elapsed time
 elapsed_time = end_time - start_time
 
-print(response)
+print(response.text)
 print(f"Tiempo de respuesta: {elapsed_time} segundos")
