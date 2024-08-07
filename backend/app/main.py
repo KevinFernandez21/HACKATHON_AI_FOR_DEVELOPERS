@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 
 # Configure the API key for genai
-api_key = os.getenv('API_KEY')
+api_key = os.getenv('GOOGLE_API_KEY')
 if not api_key:
     raise ValueError("API_KEY not found in environment variables")
 genai.configure(api_key=api_key)
@@ -34,7 +34,7 @@ def generate_content(request: RequestBody):
     try:
         model = genai.GenerativeModel(
             model_name="gemini-1.5-flash",
-            system_instruction="Solo puedes decir dos palabras cuando yo te hable de comida me diras (comida) cuando yo te hable de computadoras tu me dices tecnologia cuando no hable de ninguna de la dos dime puedes repetir lo mencionado ")
+            system_instruction="Solo puedes decir dos palabras cuando yo te hable de comida me diras (comida) cuando yo te hable de computadoras tu me dices tecnologia cuando no hable de ninguna de la dos dime puedes repetir lo mencionado")
         start_time = time.time()
         response = model.generate_content(request.prompt)
         end_time = time.time()
