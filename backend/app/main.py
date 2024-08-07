@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 
 # Configure the API key for genai
-api_key = os.getenv('API_KEY')
+api_key = os.getenv('API_KEY_GEMINI')
 if not api_key:
     raise ValueError("API_KEY not found in environment variables")
 genai.configure(api_key=api_key)
@@ -45,4 +45,5 @@ def generate_content(request: RequestBody):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
