@@ -1,23 +1,17 @@
-# Utiliza una imagen base de Python
-FROM python:3.11
+# Usa una imagen base oficial de Python
+FROM python:3.10-slim
 
 # Establece el directorio de trabajo
 WORKDIR /app
 
-# Copia los archivos de requisitos
-COPY backend/requirements.txt 
+# Copia los archivos de requerimientos
+COPY requirements.txt .
 
-# Instala los requisitos
+# Instala las dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia el contenido de tu aplicación al contenedor
-COPY backend/app 
-
-# Establece la variable de entorno para el puerto
-ENV PORT 8000
-
-# Expone el puerto en el que la aplicación correrá
-EXPOSE 8000
+# Copia el resto de los archivos de la aplicación
+COPY . .
 
 # Comando para ejecutar la aplicación
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "backend.app.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -7,3 +7,4 @@ uvicorn[standard]
 google.generativeai
 gunicorn
 python-dotenv
+pydantic
