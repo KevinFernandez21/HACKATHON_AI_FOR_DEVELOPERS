@@ -5,13 +5,13 @@ FROM python:3.11
 WORKDIR /app
 
 # Copia los archivos de requisitos
-COPY backend/app/requirements.txt /app/
+COPY backend/requirements.txt 
 
 # Instala los requisitos
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copia el contenido de tu aplicación al contenedor
-COPY backend/app /app
+COPY backend/app 
 
 # Establece la variable de entorno para el puerto
 ENV PORT 8000
