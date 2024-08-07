@@ -3,6 +3,7 @@ google-generativeai
 google-ai-generativelanguage
 numpy
 unstructured[pdf]
-onnx
-onnxruntime
-onnx-tf
+uvicorn[standard]
+google.generativeai
+gunicorn
+python-dotenv
