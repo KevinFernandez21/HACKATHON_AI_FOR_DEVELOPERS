@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 
 # Configure the API key for genai
-api_key = os.getenv('API_KEY_GEMINI')
+api_key = os.getenv('GOOGLE_API_KEY')
 if not api_key:
     raise ValueError("API_KEY not found in environment variables")
 genai.configure(api_key=api_key)
