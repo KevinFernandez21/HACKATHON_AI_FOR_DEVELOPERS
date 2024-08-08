@@ -1,16 +1,20 @@
-# Build stage
-FROM python:3.10-slim AS builder
+# Use an official Python runtime as a parent image
+FROM python:3.9-slim
 
+# Set the working directory in the container
 WORKDIR /app
-COPY . .
+
+# Copy the current directory contents into the container at /app
+COPY . /app
+
+# Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Final stage
-FROM python:3.10-slim
+# Make port 8000 available to the world outside this container
+EXPOSE 8080
 
-WORKDIR /app
-COPY --from=builder /app .
+# Define environment variable
+ENV GOOGLE_API_KEY=your_google_api_key_here
 
-ENV PYTHONUNBUFFERED True
-
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app.main:app
+# Run app.py when the container launches
+CMD ["uvicorn", "app:app","--","--host", "0.0.0.0", "--port", "8080"]
