@@ -1,11 +1,10 @@
 steps:
-  # Etapa de construcción
   - name: 'gcr.io/cloud-builders/docker'
     args: ['build', '-t', 'gcr.io/hackathonaifordevelopers/cloud-run-source-deploy/hackathon_ai_for_developers/my-image:$COMMIT_SHA', '.']
-    dir: 'backend'  # Especifica el directorio donde se encuentra tu Dockerfile
+    dir: 'backend'
 
 images:
   - 'gcr.io/hackathonaifordevelopers/cloud-run-source-deploy/hackathon_ai_for_developers/my-image:$COMMIT_SHA'
 
 options:
-  logging: GCS_ONLY
+  logging: CLOUD_LOGGING_ONLY
