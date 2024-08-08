@@ -9,4 +9,4 @@ images:
 
 options:
   logging: GCS_ONLY
-  log_bucket: "gs://my-build-logs-bucket"
+  log_bucket: "gs://my-build-logs-hackathon"
