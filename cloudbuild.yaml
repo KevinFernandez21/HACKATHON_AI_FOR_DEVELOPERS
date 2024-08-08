@@ -7,6 +7,3 @@ steps:
 images:
   - 'gcr.io/hackathonaifordevelopers/cloud-run-source-deploy/hackathon_ai_for_developers/my-image:$COMMIT_SHA'
 
-options:
-  logging: GCS_ONLY
-  log_bucket: "gs://my-build-logs-hackathon"
