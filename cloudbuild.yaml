@@ -1,0 +1,12 @@
+steps:
+  # Etapa de construcción
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/my-image:$COMMIT_SHA', '.']
+    dir: 'backend'  # Especifica el directorio donde se encuentra tu Dockerfile
+
+images:
+  - 'gcr.io/$PROJECT_ID/my-image:$COMMIT_SHA'
+
+options:
+  logging: GCS_ONLY
+  log_bucket: "gs://my-build-logs-bucket"
