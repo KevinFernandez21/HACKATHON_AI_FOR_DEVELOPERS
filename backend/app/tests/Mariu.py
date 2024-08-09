@@ -1,26 +1,33 @@
+#info de: https://aistudio.google.com/app/prompts/new_chat
 ## implementar fast API para crear un chat simple
 
-import google.generativeai as genai 
-from dotenv import load_dotenv
 import os
-import time
-
+from dotenv import load_dotenv
 load_dotenv()  # Load the .env file
 
-genai.configure(api_key=os.getenv('API_KEY'))
+import google.generativeai as genai
 
-model = genai.GenerativeModel('gemini-1.5-flash')
+from fastapi import FastAPI
+from fastapi.responses import JSONResponse
+from fastapi import status
 
-# Start the timer
-start_time = time.time()
+from geminiSchema import GeminiSchema
 
-response = model.generate_content("hola")
+app = FastAPI()
 
-# End the timer
-end_time = time.time()
+@app.get("/")  #ruta raiz
+async def root():
+    return {"message": "ESTO ES UNA PRUEBA AAA busca /chatbot"}
 
-# Calculate the elapsed time
-elapsed_time = end_time - start_time
 
-print(response.text)
-print(f"Tiempo de respuesta: {elapsed_time} segundos")
+@app.post("/chatbot", status_code=status.HTTP_200_OK, tags=["gemini"] )  #ruta chatbot
+def chatbotGemini(pregunta: GeminiSchema):
+  genai.configure(api_key=os.getenv('API_KEY'))
+
+  model = genai.GenerativeModel( model_name="gemini-1.5-flash" )
+
+  chat = model.start_chat(history=[])
+
+  response = chat.send_message(pregunta.preguntas)
+
+  return JSONResponse(status_code=status.HTTP_200_OK, content={"respuesta": response.text})
