@@ -4,4 +4,4 @@ steps:
 
 options:
   logging:
-    defaultLogsBucketBehavior: CLOUD_LOGGING_ONLY 
+    defaultLogsBucketBehavior: CLOUD_LOGGING_ONLY
