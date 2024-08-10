@@ -3,4 +3,5 @@ steps:
     args: ['build', '-t', 'my-image', '.']
 
 options:
-  defaultLogsBucketBehavior: CLOUD_LOGGING_ONLY
+  logging:
+    defaultLogsBucketBehavior: CLOUD_LOGGING_ONLY 
