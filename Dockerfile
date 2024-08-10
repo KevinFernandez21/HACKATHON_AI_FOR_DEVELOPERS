@@ -19,4 +19,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY static/favicon.ico static/
 
 # Ejecutar Gunicorn con el adaptador UvicornWorker al iniciar el contenedor
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 -k uvicorn.workers.UvicornWorker app.main:app
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 -k uvicorn.workers.UvicornWorker backend.app.main:app
