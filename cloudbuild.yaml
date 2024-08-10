@@ -1,6 +1,6 @@
 steps:
   - name: 'gcr.io/cloudbuild/docker'
-    args: ['build', '-t', 'my-backend-image', '-f', 'backend/Dockerfile', '.']
+    args: ['build', '-t', 'my-backend-image', '-f', 'backend/', '.']
   - name: 'gcr.io/cloudbuild/docker'
     args: ['push', 'my-backend-image']
 
