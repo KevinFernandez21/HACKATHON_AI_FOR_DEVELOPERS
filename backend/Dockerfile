@@ -19,5 +19,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Para entornos con varios núcleos de CPU, aumente la cantidad de trabajadores
 # para ser igual a los núcleos disponibles.
 # El tiempo de espera se establece en 0 para deshabilitar los tiempos de espera de los trabajadores para permitir que Cloud Run maneje el escalado de instancias.
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app.main:app
+CMD exec uvicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app.main:app
 
