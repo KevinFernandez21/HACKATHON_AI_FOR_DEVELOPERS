@@ -1,6 +1,6 @@
 steps:
 - name: 'gcr.io/cloudbuild/docker'
-  args: ['build', '-t', 'my-image:latest', '.']
+  args: ['build', '-t', 'my-image:latest', '-f', 'backend/Dockerfile', '.']
 timeout: '1200s'
 options:
   logging: 'CLOUD_LOGGING_ONLY'
