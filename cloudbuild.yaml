@@ -1,9 +1,6 @@
 steps:
-  steps:
   - name: 'gcr.io/cloudbuild/docker'
-    args: ['build', '-t', 'my-backend-image', '-f', 'backend/Dockerfile', '.']
-  - name: 'gcr.io/cloudbuild/docker'
-    args: ['push', 'my-backend-image']
+    args: ['build', '-t', 'my-image', '.']
 
 options:
   defaultLogsBucketBehavior: CLOUD_LOGGING_ONLY
