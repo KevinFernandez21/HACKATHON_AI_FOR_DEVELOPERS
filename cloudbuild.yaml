@@ -1,7 +1,7 @@
 steps:
-  - name: 'gcr.io/cloudbuild/docker'
-    args: ['build', '-t', 'my-image', '.']
-
+- name: 'gcr.io/cloudbuild/docker'
+  args: ['build', '-t', 'my-image:latest', '.']
+timeout: '1200s'
 options:
-  logging:
-    defaultLogsBucketBehavior: CLOUD_LOGGING_ONLY
+  logging: 'CLOUD_LOGGING_ONLY'
+service_account: 'backend@hackathon-gemini.iam.gserviceaccount.com'
