@@ -1,0 +1,9 @@
+steps:
+  - name: 'gcr.io/cloudbuild/docker'
+    args: ['build', '-t', 'my-backend-image', '-f', 'backend/Dockerfile', '.']
+  - name: 'gcr.io/cloudbuild/docker'
+    args: ['push', 'my-backend-image']
+
+options:
+  logging:
+    logsBucket: REGIONAL_USER_OWNED_BUCKET
