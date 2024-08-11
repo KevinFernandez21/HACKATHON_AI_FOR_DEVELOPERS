@@ -30,8 +30,8 @@ app.add_middleware(
 
 # Montar el directorio estático
 app.mount("/static", StaticFiles(directory="static"), name="static")
-
-# Manejar solicitudes para favicon.ico
+#no tocar esto
+# Manejar solicitudes para favicon.ico----
 @app.get("/favicon.ico", include_in_schema=False)
 async def favicon():
     # Retornar el archivo favicon.ico si existe, de lo contrario, retornar un estado 204
@@ -39,7 +39,7 @@ async def favicon():
     if os.path.exists(favicon_path):
         return FileResponse(favicon_path)
     return Response(status_code=204)
-
+#------------------------------------------------
 class RequestBody(BaseModel):
     prompt: str
 
