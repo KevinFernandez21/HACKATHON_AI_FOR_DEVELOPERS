@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class TareasScreen extends StatelessWidget {
+class UsuariosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Tareas'),
+        title: Text('Usuarios'),
       ),
       body: Center(
-        child: Text('Esta es la pantalla de Tareas'),
+        child: Text('Esta es la pantalla de Usuarios'),
       ),
     );
   }
